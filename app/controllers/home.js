@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var dateFormat = require('dateformat');
 var userModel = require('../models/user');
 
+
 const user = new userModel("User");
 
 exports.loggedIn = function(req, res, next)
@@ -20,13 +21,7 @@ exports.loggedIn = function(req, res, next)
 }
 
 exports.list = function(req, res) {
-
-	user.setname("Lanz Bocado Ruiz");
-
-    //res.send('You sent the name "' + req.body.username + '".');
-    console.log(`You called the model name ${user.getname()}`);
-    console.log('You sent the name "' + req.body.username + '".');
-    res.redirect('/login');
+   user.getall(res);
 
 
 }

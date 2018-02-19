@@ -6,21 +6,52 @@ var userModel = require('../models/user');
 const user = new userModel("User");
 
 
+class userController {
 
-exports.home = function(req, res){
-
-      res.render('index.ejs');
-
-}	
+	page (name) {
   
-exports.login = function(req, res) {
-   	  res.render('login.ejs');
+        switch (name) {
+            case "index":
+               name = "login";
+               break; 
+            case "login":
+               name = "login";
+               break;
+            case "signup":
+               name = "signup";
+               break; 
+            default: 
+               name = "index";
+        }
+
+        return name;
+
+
+	}
 }
 
-exports.signup = function(req, res) {
+var userpage = new userController();
+
+
+
+module.exports = {
+
+	home : function(req, res){
+
+      res.render(userpage.page("index")+'.ejs');
+
+    },
+
+    login : function(req, res) {
+	
+   	  res.render('login.ejs');
+    },
+
+    signup : function(req, res) {
    
 		res.render('signup.ejs');
 
+    }
 }
 
 

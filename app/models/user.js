@@ -1,17 +1,23 @@
-var mongodb = require('mongoose')
+//var MongoClient = require('mongodb').MongoClient;
+//var MongoClient = require('mongodb').MongoClient;
+
+var MongoClient = require('../../lib/mongodb')
+var database = require('../../config/database')
+
+
+const mongo = new MongoClient();
+
+var collection;
 
 class User {
 
-  constructor(name) {
-    this.name = name;
-  }
+ 
 
-  getname() {
-    return this.name
-  }
+ getall(res) {
 
-  setname(name) {
-  	this.name = name;
+  	 mongo.connect = function(res, 'Users'){
+  	 	 collection : 'Users'
+  	 }
   }
 
 }

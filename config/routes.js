@@ -5,10 +5,10 @@ var user = require('../app/controllers/user');
 
 module.exports = function (app, passport) {
 
-    app.post('/list', home.list);
+    app.post('/home', user.login);
     app.get('/signup', home.signup);
 
-    app.get('/', home.login);//home
+    app.get('/api/list', home.list);//home
     app.get('/login', user.login);//home
 
     app.post('/signup', passport.authenticate('local-signup', {
